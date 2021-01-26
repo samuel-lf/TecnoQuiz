@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import db from '../db.json';
 import Footer from '../src/components/Footer';
@@ -19,6 +20,18 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = useState('');
+
+  function defineName(event) {
+    setName(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    router.push(`/quiz?name=${name}`);
+  }
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
@@ -28,7 +41,17 @@ export default function Home() {
             <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>{db.description}</p>
+            <form onSubmit={(e) => handleSubmit(e)}>
+              <Widget.Input
+                onChange={(e) => defineName(e)}
+                placeholder="Digite seu nome"
+              />
+              <Widget.Button type="submit" disabled={name.length === 0}>
+                Jogar como
+                {' '}
+                {name}
+              </Widget.Button>
+            </form>
           </Widget.Content>
         </Widget>
 

@@ -46,4 +46,34 @@ Widget.Content = styled.div`
   }
 `;
 
+Widget.Input = styled.input`
+  width: 100%;
+  display: block;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #DADADA;
+  color: ${({ theme }) => theme.colors.contrastText};
+  border-radius:  ${({ theme }) => theme.borderRadius};
+  &::placeholder{
+    color: ${({ theme }) => theme.colors.contrastText};
+  }
+`;
+
+Widget.Button = styled.button`
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  padding: 10px 0;
+  margin-top: 10px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border: none;
+  color: ${({ theme }) => theme.colors.contrastText};
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
+  border-radius:  ${({ theme }) => theme.borderRadius};
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5
+  }
+`;
+
 export default Widget;
