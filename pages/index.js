@@ -3,6 +3,7 @@ import db from '../db.json';
 import Footer from '../src/components/Footer';
 import QuizBackground from '../src/components/QuizBackground'
 import QuizLogo from '../src/components/QuizLogo'
+import GitHubCorner from '../src/components/GitHubCorner'
 import Widget from '../src/components/Widget'
 
 export const QuizContainer = styled.div`
@@ -39,6 +40,7 @@ export default function Home() {
         </Widget>
         <Footer />
       </QuizContainer>
+      <GitHubCorner projectUrl="https://github.com/samuel-lf/TecnoQuiz" />
     </QuizBackground>
   )
 }
