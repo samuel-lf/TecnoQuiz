@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import db from '../db.json';
+import Footer from '../src/components/Footer';
 import QuizBackground from '../src/components/QuizBackground'
 import QuizLogo from '../src/components/QuizLogo'
 import Widget from '../src/components/Widget'
@@ -36,6 +37,7 @@ export default function Home() {
             <p>Dê uma olhada em outros quizes incriveis que o pessoal da Imersão fez:</p>
           </Widget.Content>
         </Widget>
+        <Footer />
       </QuizContainer>
     </QuizBackground>
   )
