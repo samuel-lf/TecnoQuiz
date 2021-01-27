@@ -7,6 +7,7 @@ import QuizBackground from '../src/components/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo';
 import GitHubCorner from '../src/components/GithubCorner';
 import Widget from '../src/components/Widget';
+import Input from '../src/components/Input';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -42,9 +43,11 @@ export default function Home() {
           </Widget.Header>
           <Widget.Content>
             <form onSubmit={(e) => handleSubmit(e)}>
-              <Widget.Input
+              <Input
                 onChange={(e) => defineName(e)}
                 placeholder="Digite seu nome"
+                name="nome_usuario"
+                value={name}
               />
               <Widget.Button type="submit" disabled={name.length === 0}>
                 Jogar como
