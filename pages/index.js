@@ -8,6 +8,7 @@ import QuizLogo from '../src/components/QuizLogo';
 import GitHubCorner from '../src/components/GithubCorner';
 import Widget from '../src/components/Widget';
 import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -49,11 +50,11 @@ export default function Home() {
                 name="nome_usuario"
                 value={name}
               />
-              <Widget.Button type="submit" disabled={name.length === 0}>
+              <Button type="submit" disabled={name.length === 0}>
                 Jogar como
                 {' '}
                 {name}
-              </Widget.Button>
+              </Button>
             </form>
           </Widget.Content>
         </Widget>

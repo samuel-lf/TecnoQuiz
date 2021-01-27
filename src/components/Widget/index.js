@@ -46,20 +46,4 @@ Widget.Content = styled.div`
   }
 `;
 
-Widget.Button = styled.button`
-  cursor: pointer;
-  width: 100%;
-  display: block;
-  padding: 10px 0;
-  background-color: ${({ theme }) => theme.colors.primary};
-  border: none;
-  color: ${({ theme }) => theme.colors.contrastText};
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px rgba(0, 0, 0, 0.24);
-  border-radius:  ${({ theme }) => theme.borderRadius};
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5
-  }
-`;
-
 export default Widget;
