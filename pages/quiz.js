@@ -8,6 +8,37 @@ import QuizLogo from '../src/components/QuizLogo';
 import GitHubCorner from '../src/components/GithubCorner';
 import Widget from '../src/components/Widget';
 import Button from '../src/components/Button';
+import AlternativesForm from '../src/components/AlternativesForm';
+
+function ResultWidget({ results }) {
+  return (
+    <Widget>
+      <Widget.Header>
+        Resultado
+      </Widget.Header>
+
+      <Widget.Content>
+        <p>
+          Você acertou
+          {' '}
+          { results.filter((result) => result).length }
+          {' '}
+          perguntas
+        </p>
+        <ul>
+          {results.map((result, index) => {
+            const resultId = `result__${index}`;
+            return (
+              <li key={resultId}>
+                {`#${index + 1} Resultado: ${result === true ? 'Acertou' : 'Errou'} `}
+              </li>
+            );
+          })}
+        </ul>
+      </Widget.Content>
+    </Widget>
+  );
+}
 
 function LoadingWidget() {
   return (
@@ -24,9 +55,13 @@ function LoadingWidget() {
 }
 
 function QuestionWidget({
-  question, totalQuestions, questionIndex, onSubmit,
+  question, totalQuestions, questionIndex, onSubmit, addResult,
 }) {
+  const [selectedAlternative, setSelectedAlternative] = useState(undefined);
+  const [isQuestionSubmited, setIsQuestionSubmited] = useState(false);
+  const isCorrect = selectedAlternative === question.answer;
   const questionId = `question__${questionIndex}`;
+  const hasAlteranativeSelected = selectedAlternative !== undefined;
 
   return (
     <Widget>
@@ -47,26 +82,43 @@ function QuestionWidget({
       <Widget.Content>
         <h2>{question.title}</h2>
         <p>{question.description}</p>
-        <form onSubmit={(event) => {
+        <AlternativesForm onSubmit={(event) => {
           event.preventDefault();
-          onSubmit();
+          setIsQuestionSubmited(true);
+          setTimeout(() => {
+            addResult(isCorrect);
+            onSubmit();
+            setIsQuestionSubmited(false);
+            setSelectedAlternative(undefined);
+          }, 3 * 1000);
         }}
         >
           {
             question.alternatives.map((alternative, index) => {
               const alternativeId = `alternative__${index}`;
+              const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
+              const isSelected = selectedAlternative === index;
               return (
-                <Widget.Topic as="label" htmlFor={alternativeId} key={alternativeId}>
-                  <input name={questionId} id={alternativeId} type="radio" />
+                <Widget.Topic
+                  as="label"
+                  htmlFor={alternativeId}
+                  key={alternativeId}
+                  data-status={isQuestionSubmited && alternativeStatus}
+                  data-selected={isSelected}
+                >
+                  <input name={questionId} id={alternativeId} type="radio" onChange={() => setSelectedAlternative(index)} />
                   {alternative}
                 </Widget.Topic>
               );
             })
           }
-          <Button type="submit">
+          <Button type="submit" disabled={!hasAlteranativeSelected}>
             Confirmar
           </Button>
-        </form>
+
+          {isQuestionSubmited && isCorrect && <p>Está correto</p>}
+          {isQuestionSubmited && !isCorrect && <p>Está errado</p>}
+        </AlternativesForm>
       </Widget.Content>
     </Widget>
   );
@@ -80,6 +132,7 @@ const screenStates = {
 
 export default function Home() {
   const [screenState, setScreenState] = useState(screenStates.Loading);
+  const [results, setResults] = useState([]);
   const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
@@ -90,6 +143,10 @@ export default function Home() {
       setScreenState(screenStates.Quiz);
     }, 1 * 1000);
   }, []);
+
+  function addResult(result) {
+    setResults([...results, result]);
+  }
 
   function handleSubmitQuiz() {
     const nextQuestion = questionIndex + 1;
@@ -111,11 +168,12 @@ export default function Home() {
               totalQuestions={totalQuestions}
               questionIndex={questionIndex}
               onSubmit={handleSubmitQuiz}
+              addResult={addResult}
             />
           )
         }
         { screenState === screenStates.Loading && <LoadingWidget /> }
-        { screenState === screenStates.Result && <p>Resultado</p> }
+        { screenState === screenStates.Result && <ResultWidget results={results} /> }
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/samuel-lf/TecnoQuiz" />

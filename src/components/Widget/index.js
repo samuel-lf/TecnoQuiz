@@ -62,6 +62,10 @@ Widget.Topic = styled.a`
   &:focus {
     opacity: .5;
   }
+
+  & > input[type="radio"] {
+    display: none;
+  }
 `;
 
 export default Widget;
