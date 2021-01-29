@@ -9,6 +9,7 @@ import GitHubCorner from '../src/components/GithubCorner';
 import Widget from '../src/components/Widget';
 import Input from '../src/components/Input';
 import Button from '../src/components/Button';
+import Link from '../src/components/Link';
 
 export default function Home() {
   const router = useRouter();
@@ -20,7 +21,7 @@ export default function Home() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    router.push(`/quiz?name=${name}`);
+    router.push(`/quiz/tecno-quiz___samuel-lf?name=${name}`);
   }
 
   return (
@@ -61,8 +62,8 @@ export default function Home() {
                     .split('.');
                   return (
                     <li key={linkExternalId}>
-                      <Widget.Topic href={linxExternal}>
-                        {`${project}/${username}`}
+                      <Widget.Topic href={`/quiz/${project}___${username}`} as={Link}>
+                        {`${username}/${project}`}
                       </Widget.Topic>
                     </li>
                   );
