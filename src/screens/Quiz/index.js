@@ -10,6 +10,7 @@ import Widget from '../../components/Widget';
 import Button from '../../components/Button';
 import AlternativesForm from '../../components/AlternativesForm';
 import BackLinkArrow from '../../components/BackLinkArrow';
+import Loader from '../../components/Loader';
 
 function ResultWidget({ results }) {
   return (
@@ -67,7 +68,7 @@ function LoadingWidget() {
       </Widget.Header>
 
       <Widget.Content>
-        [Desafio do Loading]
+        <Loader />
       </Widget.Content>
     </Widget>
   );
