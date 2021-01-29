@@ -50,7 +50,25 @@ export default function Home() {
           <Widget.Content>
             <h1>Quizes da Galera</h1>
 
-            <p>Dê uma olhada em outros quizes incriveis que o pessoal da Imersão fez:</p>
+            <p>Dê uma olhada em outros quizes incriveis que o pessoal da imersão fez:</p>
+            <ul>
+              {
+                db.external.map((linxExternal, index) => {
+                  const linkExternalId = `linkExternal__${index}`;
+                  const [project, username] = linxExternal.replace(/\//g, '')
+                    .replace('https:', '')
+                    .replace('.vercel.app', '')
+                    .split('.');
+                  return (
+                    <li key={linkExternalId}>
+                      <Widget.Topic href={linxExternal}>
+                        {`${project}/${username}`}
+                      </Widget.Topic>
+                    </li>
+                  );
+                })
+              }
+            </ul>
           </Widget.Content>
         </Widget>
         <Footer />

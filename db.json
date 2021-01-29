@@ -29,7 +29,10 @@
       }
     ],
     "external": [
-      ""
+      "https://aluraquiz.edlanioj.vercel.app/",
+      "https://alura-quiz-avengers.fernanda-kipper.vercel.app/",
+      "https://philosophy-quiz.lucasgab.vercel.app/",
+      "https://quizxadrez.dilvaqueiroz.vercel.app/"
     ],
     "theme": {
       "colors": {
