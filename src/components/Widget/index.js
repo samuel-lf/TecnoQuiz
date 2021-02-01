@@ -68,4 +68,22 @@ Widget.Topic = styled.a`
   }
 `;
 
+Widget.Correct = styled.p`
+  color: ${({ theme }) => theme.colors.contrastText};
+  background-color: ${({ theme }) => `${theme.colors.success}40`};
+  padding: 10px 15px;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  transition: .3s;
+  display: block;
+`;
+
+Widget.Incorrect = styled.p`
+  color: ${({ theme }) => theme.colors.contrastText};
+  background-color: ${({ theme }) => `${theme.colors.wrong}40`};
+  padding: 10px 15px;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  transition: .3s;
+  display: block;
+`;
+
 export default Widget;
