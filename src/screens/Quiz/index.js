@@ -82,6 +82,7 @@ function QuestionWidget({
   const isCorrect = selectedAlternative === question.answer;
   const questionId = `question__${questionIndex}`;
   const hasAlteranativeSelected = selectedAlternative !== undefined;
+  const [loadingNextQuestion, setLoadingNextQuestion] = useState(false);
 
   return (
     <Widget
@@ -114,12 +115,14 @@ function QuestionWidget({
         <p>{question.description}</p>
         <AlternativesForm onSubmit={(event) => {
           event.preventDefault();
+          setLoadingNextQuestion(true);
           setIsQuestionSubmited(true);
           setTimeout(() => {
             addResult(isCorrect);
             onSubmit();
             setIsQuestionSubmited(false);
             setSelectedAlternative(undefined);
+            setLoadingNextQuestion(false);
           }, 3 * 1000);
         }}
         >
@@ -135,6 +138,7 @@ function QuestionWidget({
                   key={alternativeId}
                   data-status={isQuestionSubmited && alternativeStatus}
                   data-selected={isSelected}
+                  className={(loadingNextQuestion && !isSelected ? 'disabled' : '')}
                 >
                   <input name={questionId} id={alternativeId} type="radio" onChange={() => setSelectedAlternative(index)} />
                   {alternative}
@@ -142,7 +146,7 @@ function QuestionWidget({
               );
             })
           }
-          <Button type="submit" disabled={!hasAlteranativeSelected}>
+          <Button type="submit" disabled={!hasAlteranativeSelected || loadingNextQuestion}>
             Confirmar
           </Button>
 
