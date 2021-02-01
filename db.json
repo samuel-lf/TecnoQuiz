@@ -26,6 +26,102 @@
            "2005",
            "2007"
         ]
+      },
+      {
+        "image": "https://media.giphy.com/media/3o7qE1182TDor4jIiI/giphy.gif",
+        "title": "Qual é o mascote do navegador Mozilla Firefox?",
+        "description": "Essa confude muita gente!",
+        "answer": 2,
+        "alternatives": [
+           "Raposa",
+           "Cachorro",
+           "Panda vermelho",
+           "Lobo"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/fq6xyKgDC0eAE2ezxV/giphy.gif",
+        "title": "Qual a senha mais utilizada na internet?",
+        "description": "Dúvido que você NUNCA tenha usado essa!",
+        "answer": 0,
+        "alternatives": [
+           "123456",
+           "abcdef",
+           "a1b2c3",
+           "password"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/g04r76H19hke7pIzEM/giphy.gif",
+        "title": "Qual o significado de WWW?",
+        "description": "Essa está fácil! Não?",
+        "answer": 1,
+        "alternatives": [
+           "Work Worth Web",
+           "World Wide Web",
+           "Web World Wide",
+           "Web Wide World"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/fEUczsosEDagM/giphy.gif",
+        "title": "Qual a primeira rede sociais da história da internet?",
+        "description": "Aposto que essa você não sabia!",
+        "answer": 3,
+        "alternatives": [
+           "ICQ",
+           "MySpace",
+           "Orkut",
+           "Classmate"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/3osBLA53AVzn746dXi/giphy.gif",
+        "title": "Qual a resolução de uma imagem Full HD",
+        "description": "Essa também confunde alguns!",
+        "answer": 0,
+        "alternatives": [
+           "1920x1080",
+           "1280x720",
+           "2560x1440",
+           "3840x2160"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/XbIoQQuFfFIirDn4A0/giphy.gif",
+        "title": "Quantos bits cabem um byte?",
+        "description": "Se você acertar, você é diferenciado!",
+        "answer": 3,
+        "alternatives": [
+           "6 bits",
+           "4 bits",
+           "2 bits",
+           "8 bits"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/3osxYcHkIWl29UKdoc/giphy.gif",
+        "title": "Qual o significado da sigla HTML?",
+        "description": "Vai, eu tenho certeza que essa você irá acertar!",
+        "answer": 3,
+        "alternatives": [
+           "HyperText Markup Language",
+           "HyperText Montup Layout",
+           "HydroText Marker Language",
+           "HyperText Much Large"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/ymKIz3zBieFNK/giphy.gif",
+        "title": "Em qual ano foi fundado o google?",
+        "description": "Para terminar com chave de outro em!",
+        "answer": 3,
+        "alternatives": [
+          "1992",
+          "1996",
+          "1994",
+          "1998"
+        ]
       }
     ],
     "external": [
