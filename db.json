@@ -103,7 +103,7 @@
         "image": "https://media.giphy.com/media/3osxYcHkIWl29UKdoc/giphy.gif",
         "title": "Qual o significado da sigla HTML?",
         "description": "Vai, eu tenho certeza que essa você irá acertar!",
-        "answer": 3,
+        "answer": 0,
         "alternatives": [
            "HyperText Markup Language",
            "HyperText Montup Layout",
@@ -128,7 +128,7 @@
       "https://aluraquiz.edlanioj.vercel.app/",
       "https://alura-quiz-avengers.fernanda-kipper.vercel.app/",
       "https://philosophy-quiz.lucasgab.vercel.app/",
-      "https://quizxadrez.dilvaqueiroz.vercel.app/"
+      "https://lolzinquiz-git-main.bernardooficial.vercel.app/"
     ],
     "theme": {
       "colors": {
