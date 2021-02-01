@@ -43,6 +43,10 @@ export default function Home() {
             <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
+            <p>
+              Para iniciar o quiz principal ou um dos quizes da galera,
+              basta digitar o seu nome e selecionar seu jogo!
+            </p>
             <form onSubmit={(e) => handleSubmit(e)}>
               <Input
                 onChange={(e) => defineName(e)}
@@ -81,7 +85,11 @@ export default function Home() {
                     .split('.');
                   return (
                     <li key={linkExternalId}>
-                      <Widget.Topic href={`/quiz/${project}___${username}`} as={Link}>
+                      <Widget.Topic
+                        className={(name.length === 0 ? 'disabled' : '')}
+                        href={`/quiz/${project}___${username}?name=${name}`}
+                        as={Link}
+                      >
                         {`${username}/${project}`}
                       </Widget.Topic>
                     </li>

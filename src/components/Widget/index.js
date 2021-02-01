@@ -66,6 +66,11 @@ Widget.Topic = styled.a`
   & > input[type="radio"] {
     display: none;
   }
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 `;
 
 Widget.Correct = styled.p`
